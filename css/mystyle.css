@@ -1,0 +1,224 @@
+@charset "UTF-8";
+
+/* 全体の基本設定 */
+body {
+background-color: #edd1f9;
+font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+color: #333333;
+margin: 0;
+padding: 0;
+}
+
+/* サイト全体を包むコンテナ */
+.container {
+max-width: 1050px;
+margin: 20px auto;
+padding: 0 15px;
+box-sizing: border-box;
+}
+
+/* ヘッダー部分 */
+header {
+background-color: #5c137d;
+padding: 30px 0;
+text-align: center;
+border-radius: 10px 10px 0 0;
+}
+
+.title {
+margin: 0;
+font-size: 28px;
+letter-spacing: 2px;
+}
+
+/* ヘッダー内のタイトルリンク設定（文字が白く見えるように） */
+.title a {
+color: #ffffff;
+text-decoration: none;
+}
+
+/* ==========================================
+仕様 ②: パンくずリスト（li要素に display: inline;）
+========================================== */
+.breadcrumb {
+margin: 10px 0;
+padding: 0;
+}
+
+.breadcrumb ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.breadcrumb li {
+display: inline; /* 仕様通りインライン化 */
+font-size: 14px;
+}
+
+/* 階層の区切り文字 ">" を自動挿入 */
+.breadcrumb li+li:before {
+content: " > ";
+padding: 0 5px;
+color: #5c137d;
+}
+
+/* ==========================================
+メインコンテンツ（左側）とサイドメニュー（右側）の配置
+========================================== */
+article {
+float: left;
+width: 70%;
+box-sizing: border-box;
+}
+
+aside {
+float: right;
+width: 25%;
+box-sizing: border-box;
+}
+
+/* 角丸の白いボックスデザインの共通設定（現在のサイトデザインの再現） */
+.box {
+background-color: #ffffff;
+padding: 20px;
+margin-bottom: 20px;
+border-radius: 15px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.box h2 {
+color: #5c137d;
+font-size: 20px;
+margin-top: 0;
+border-bottom: 1px solid #edd1f9;
+padding-bottom: 8px;
+}
+
+.box-content {
+line-height: 1.6;
+font-size: 15px;
+}
+
+/* 右側のサイドナビゲーションメニューのデザイン */
+.side-menu {
+background-color: #ffffff;
+padding: 25px 20px;
+border-radius: 15px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.side-menu ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.side-menu li {
+margin-bottom: 20px;
+font-size: 16px;
+font-weight: bold;
+}
+
+.side-menu li:last-child {
+margin-bottom: 0;
+}
+
+/* ==========================================
+仕様 ①: 回り込みの設定と解除（float と clear）
+========================================== */
+.float-img {
+float: left;
+margin-right: 15px;
+margin-bottom: 10px;
+}
+
+.clear-fix {
+clear: both; /* 回り込みの解除 */
+}
+
+/* トップへ戻るボタンの配置 */
+.back-to-top {
+text-align: right;
+margin-top: 15px;
+font-size: 13px;
+}
+
+/* ==========================================
+仕様 ⑨: リンク関連のプロパティ・擬似クラスの設定
+========================================== */
+/* 全般的なリンクのデフォルト状態 */
+a {
+transition: color 0.2s ease; /* 色変化を滑らかにする */
+}
+
+/* 2) a:link - 未訪問のリンク */
+.side-menu a:link,
+.breadcrumb a:link,
+.index-box a:link,
+.back-to-top a:link {
+color: #333333;
+text-decoration: none; /* 1) text-decoration プロパティ */
+}
+
+/* 3) a:visited - 訪問済みのリンク（少し紫を深くして訪問済とわかるように） */
+.side-menu a:visited,
+.breadcrumb a:visited,
+.index-box a:visited {
+color: #666666;
+}
+
+/* 4) a:hover - カーソルが乗っているとき（パッと鮮やかなピンク・紫系に変化） */
+.side-menu a:hover,
+.breadcrumb a:hover,
+.index-box a:hover,
+.back-to-top a:hover {
+color: #da70d6;
+text-decoration: underline; /* ホバー時に下線を表示して分かりやすく */
+}
+
+/* 5) a:active - クリックされた瞬間 */
+.side-menu a:active,
+.breadcrumb a:active,
+.index-box a:active {
+color: #ff00ff;
+}
+
+/* ==========================================
+フッター部分とバリデータリンク
+========================================== */
+footer {
+clear: both; /* 左右のfloatをしっかり解除 */
+background-color: #333333;
+color: #ffffff;
+text-align: center;
+padding: 20px 0;
+margin-top: 20px;
+border-radius: 0 0 10px 10px;
+}
+
+.validator-links {
+margin-top: 10px;
+font-size: 12px;
+}
+
+.validator-links a {
+color: #ffffff;
+text-decoration: none;
+margin: 0 5px;
+}
+
+.validator-links a:hover {
+text-decoration: underline;
+}
+
+/* レスポンシブ対応（画面が狭いときは1カラムにする） */
+@media (max-width: 768px) {
+article, aside {
+float: none;
+width: 100%;
+}
+aside {
+margin-top: 20px;
+}
+}
